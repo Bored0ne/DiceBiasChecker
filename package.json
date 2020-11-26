@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "parcel serve ./index.html --cache-dir /tmp/parcelcache -d docs",
-    "build": "parcel build ./index.html --cache-dir /tmp/parcelcache -d docs && git add docs/*",
+    "build": "parcel build ./index.html --cache-dir /tmp/parcelcache -d docs && npm run formatIndex && git add docs/*",
+    "formatIndex": "sed -i 's/\\(\\/src\\.\\)/https:\\/\\/github.com\\/Bored0ne\\/DiceBiasChecker\\/tree\\/main\\/docs\\/src\\./' ./docs/index.html",
     "test": "jest"
   },
   "husky": {
