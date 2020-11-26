@@ -36,7 +36,7 @@ const DiceGraph = ({rolls = [2, 2, 3, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2]}) => {
       }
     })
   }, [rolls, ref])
-  return <div style={{width: '100%'}}>
+  return <div style={{width: '90%'}}>
     <canvas ref={ref}/>
   </div>
 };
