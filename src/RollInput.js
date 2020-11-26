@@ -13,6 +13,7 @@ const ResponsiveInput = styled.input`
   ${({isMobile}) => isMobile && `
     width: 95vw;
     height: 5vh;
+    font-size: 5vh;
   `}
 `;
 const ResponsiveButton = styled.button`
