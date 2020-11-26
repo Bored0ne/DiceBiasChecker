@@ -4,7 +4,7 @@
   "description": "Dice roll checker app",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel serve ./index.html --cache-dir /tmp/parcelcache",
+    "serve": "parcel serve ./index.html --cache-dir /tmp/parcelcache -d docs",
     "build": "parcel build ./index.html --cache-dir /tmp/parcelcache -d docs && git add docs/*",
     "test": "jest"
   },
