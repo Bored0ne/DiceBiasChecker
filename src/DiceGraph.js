@@ -14,8 +14,9 @@ const DiceGraph = ({rolls = [2, 2, 3, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2]}) => {
   const ref = useRef(null);
   useEffect(() => {
     console.log(ref);
-    new Chart(ref.current, {
+    let currentChart = new Chart(ref.current, {
       type: "line",
+      events: [],
       data: {
         datasets: [
           {
@@ -61,8 +62,17 @@ const DiceGraph = ({rolls = [2, 2, 3, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2]}) => {
         labels: Object.getOwnPropertyNames(countOfGroupedRolls)
       }
     })
+    return () => {
+      currentChart.destroy();
+    }
   }, [rolls, ref])
-  return <div style={{width: '90%'}}>
+
+  function killMouseEvents(event) {
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+  }
+
+  return <div style={{width: '90%'}} onMouseEnter={killMouseEvents} onMouseDown={killMouseEvents} onMouseLeave={killMouseEvents} onMouseMove={killMouseEvents}>
     <canvas ref={ref}/>
   </div>
 };
